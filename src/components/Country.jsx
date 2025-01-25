@@ -10,7 +10,7 @@ function Country() {
   
     return (
       <div>
-        Name: {name} 
+       Country Name: {name} 
         <br></br>
         Gold : {gold}
         <br></br>
