@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Medal from './Medal';
 export default function Country(props) {
   return (
 
@@ -7,7 +8,9 @@ export default function Country(props) {
   <div className="card-body">
     <h5 className="card-title">{props.country.name}</h5>
     <p className="card-text">
-      Gold medals: {props.country.gold}
+    {props.country.medals.current.map((medal) => (
+        <Medal key={medal.id} medal={medal} />
+      ))}
     </p>
   
 

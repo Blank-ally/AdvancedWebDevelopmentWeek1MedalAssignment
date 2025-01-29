@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Country from "./components/Country";
 import "./App.css";
 
@@ -8,11 +8,26 @@ function App() {
 
 
 
-  const [countries, SetCountries ] = useState([
-    { id: 1, name: 'United States', gold: 2 },
-    { id: 2, name: 'China', gold: 3 },
-    { id: 3, name: 'France', gold: 0 },
+  // const [countries, SetCountries ] = useState([
+  //   { id: 1, name: 'United States', gold: 2 },
+  //   { id: 2, name: 'China', gold: 3 },
+  //   { id: 3, name: 'France', gold: 0 },
+  // ]);
+
+  const medals = useRef([
+    { id: 1, name: "gold" },
+    { id: 2, name: "silver" },
+    { id: 3, name: "bronze" },
   ]);
+  
+  const [countries, SetCountries ] = useState([
+    { id: 1, name: 'United States', medals },
+    { id: 2, name: 'China', medals },
+    { id: 3, name: 'France', medals },
+  ]);
+
+  
+
 
   function handleDelete(CountryID) {
     console.log(`delete Country: ${CountryID}`);
