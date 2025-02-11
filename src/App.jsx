@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
 import Country from "./components/Country";
+import NewCountry from "./components/NewCountry";
 import "./App.css";
-
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 function App() {
 
 
@@ -66,6 +67,12 @@ return sum;
     console.log(`delete Country: ${CountryID}`);
     SetCountries(countries.filter((c) => c.id !== CountryID));
   }
+  function handleAdd(text) {
+    console.log(`add ${text}`);
+    const id =
+    countries.length === 0 ? 1 : Math.max(...countries.map((country) => country.id)) + 1;
+    SetCountries(countries.concat({ id: id, name: text ,gold:0 ,silver:0 ,bronze:0 }));
+  }
 
 
   return (
@@ -74,8 +81,9 @@ return sum;
 
       {countries.map((country) => (
         <Country key={country.id} country={country} medals={medals} onDelete={handleDelete}  onAdd={incrementMedal} onDecrement={decrementMedal}/>
+       
       ))}
-
+       <NewCountry onAdd={handleAdd} /> 
     </div>
   );
 }

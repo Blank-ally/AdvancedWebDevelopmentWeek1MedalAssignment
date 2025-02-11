@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Medal from './Medal';
+
 export default function Country(props) {
   function getTotalMedalCount(){
     let sum = 0;
